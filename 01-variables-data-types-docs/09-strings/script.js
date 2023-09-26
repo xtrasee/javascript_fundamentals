@@ -16,3 +16,4 @@ x = typeof s;
 x = s.length;
 
 console.log(x);
+
