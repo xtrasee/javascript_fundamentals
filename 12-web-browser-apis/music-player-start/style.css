@@ -1,7 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
+@font-face{
+  font-family: 'youth';
+  src: url('fonts/youth.ttf');
+}
+
 * {
   box-sizing: border-box;
+}
+
+h1{
+  font-family: 'youth';
+  font-size: 4em;
+  letter-spacing: 0.20rem;
 }
 
 body {
@@ -26,7 +37,7 @@ body {
   display: flex;
   padding: 20px 30px;
   position: relative;
-  margin: 100px 0;
+  margin: 4cqb 0;
   z-index: 10;
 }
 

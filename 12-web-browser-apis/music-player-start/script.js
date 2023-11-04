@@ -8,7 +8,7 @@ const progressContainer = document.getElementById('progress-container');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 
-const songs = ['tokyocafe', 'aesthetics'];
+const songs = ['tokyocafe', 'aesthetics','chillhop','simplicity'];
 
 //keep track of song
 let songIndex = 0;
@@ -20,7 +20,6 @@ function loadSong(song) {
     title.innerText = song;
     audio.src = `music/${song}.mp3`;
     cover.src = `images/${song}.jpg`;
-    console.log(title);
 }
 
 function playSong() {
@@ -68,11 +67,20 @@ function updateProgress(e) {
 }
 
 function setProgress(e) {
+
     const width = this.clientWidth;
     const clickX = e.offsetX;
     const duration = audio.duration;
 
     audio.currentTime = (clickX / width) * duration;
+
+}
+
+function finishedSong() {
+    const currSong =  songs[songIndex+1];
+    loadSong(currSong);
+    playSong();
+    songIndex++;
 }
 
 playBtn.addEventListener('click', () => {
@@ -88,4 +96,5 @@ playBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
 audio.addEventListener('timeupdate', updateProgress);
-progressContainer.addEventListener('click', setProgress)
+progressContainer.addEventListener('click', setProgress);
+audio.addEventListener('ended', finishedSong);
