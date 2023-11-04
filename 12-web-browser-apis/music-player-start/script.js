@@ -77,10 +77,15 @@ function setProgress(e) {
 }
 
 function finishedSong() {
-    const currSong =  songs[songIndex+1];
+    songIndex++;
+
+    if (songIndex > songs.length - 1) {
+        songIndex = 0;
+    }
+
+    const currSong =  songs[songIndex];
     loadSong(currSong);
     playSong();
-    songIndex++;
 }
 
 playBtn.addEventListener('click', () => {
